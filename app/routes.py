@@ -1,14 +1,18 @@
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
-from app import app, db, util
+from app import app, db
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 import sqlalchemy as sa
 from app.models import User
 from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
 
-@app.route("/")
-@app.route("/index")
+@app.route('/')
+@app.route('/base')
+def base():
+    return render_template('base.html')
+
+@app.route('/index')
 def index():
     return render_template("index.html", current_user=current_user)
 
@@ -91,7 +95,16 @@ def contact_us():
         q_last = form.last.data
         q_email = form.email.data
         q_query = form.query.data
+        flash("Your concerns have reached us.")
     elif request.method == 'GET':
         if current_user.is_authenticated:
-            form.email.data = current_user.email # db.session.scalar(sa.select(User.email).where(User.username == current_user.username))
+            form.email.data = current_user.email
     return render_template('contact_us.html', form=form)
+
+@app.route('/privacy_policy')
+def privacy_policy():
+    return render_template('/index')
+
+@app.route('/terms_of_service')
+def terms_of_service():
+    return render_template('/index')

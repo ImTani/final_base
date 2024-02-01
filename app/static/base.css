@@ -1,0 +1,56 @@
+:root{
+    --background-color: #283618;
+    --primary-color: #dda15e;
+    --secondary-color: #a3b18a;
+    --highlight-color: #fefae0;
+}
+
+.navbar-dark{
+    /* background-color: var(--background-color); */
+    background: linear-gradient(to right, var(--background-color), #526839);
+}
+
+.navbar-brand{
+    color: var(--highlight-color);
+}
+
+.nav-item{
+    color: var(--secondary-color);
+}
+
+.nav-link{
+    color: var(--secondary-color);
+}
+
+.navbar-text{
+    color: var(--secondary-color);
+}
+
+.navbar-text a{
+    color: var(--highlight-color);
+}
+
+.active{
+    color: var(--primary-color) !important;
+}
+
+.user-area{
+    color: var(--highlight-color);
+}
+
+.dropdown-menu{
+    background-color: var(--background-color);
+}
+
+.dropdown-item{
+    color: var(--primary-color);
+}
+
+.dropdown-item:hover{
+    color: var(--background-color);
+    background-color: var(--primary-color);
+}
+
+.footer{
+    background-color: var(--background-color);
+}

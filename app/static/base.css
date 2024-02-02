@@ -1,13 +1,20 @@
 :root{
-    --background-color: #283618;
-    --primary-color: #dda15e;
-    --secondary-color: #a3b18a;
-    --highlight-color: #fefae0;
+    --background-color: #0D1F2D;
+    --primary-color: #546A7B;
+    --secondary-color: #AAB9CF;
+    --highlight-color: #E4C3AD;
+}
+
+body{
+    min-height: 100vh;
+    background-image: url("assets/background.png");
+    background-size: 2%;
+    background-attachment: fixed;
 }
 
 .navbar-dark{
-    /* background-color: var(--background-color); */
-    background: linear-gradient(to right, var(--background-color), #526839);
+    background-color: var(--background-color);
+    /* background: linear-gradient(to right, var(--background-color), #526839); */
 }
 
 .navbar-brand{
@@ -52,5 +59,36 @@
 }
 
 .footer{
+    background-color: var(--background-color);
+    font-size: .8em;
+}
+
+h1{
+    color: var(--highlight-color);
+    text-shadow: 0px 0px 2vh var(--highlight-color);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.text{
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    text-shadow: 0px 0px .5vh var(--secondary-color), 0px 0px .2vh var(--background-color);
+}
+
+.btn{
+    color: var(--highlight-color);
+    background-color: var(--primary-color);
+    border-color: var(--background-color);
+}
+
+.btn:hover{
+    color: var(--secondary-color);
+    background-color: var(--background-color);
+}
+
+.brn:active,
+.btn:focus{
+    color: var(--highlight-color);
     background-color: var(--background-color);
 }

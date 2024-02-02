@@ -5,9 +5,16 @@ import sqlalchemy as sa
 from app import db
 from app.models import User
 
+class ExampleForm(FlaskForm):
+    heading = "Example Form"
+    username = StringField('Username', render_kw={'placeholder': 'Enter your username'})
+    email = StringField('Email', render_kw={'placeholder': 'Enter your email', 'form_text': 'Enter a valid email address.'})
+    bio = TextAreaField('Bio', render_kw={'placeholder': 'Enter your bio'})
+
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    heading = "Sign in"
+    username = StringField('Username', validators=[DataRequired()], render_kw={'placeholder': 'Enter your username.'})
+    password = PasswordField('Password', validators=[DataRequired()], render_kw={'placeholder': 'Enter your password.'})
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign in')
 

@@ -25,7 +25,7 @@
     <body>
         <!-- Navbar taken from bootstrap cheatsheet -->
         <nav class="navbar navbar-expand-lg fixed-top border-bottom border-body navbar-dark">
-            <div class="container-fluid">
+            <div class="container-fluid mx-2">
                 <a class="navbar-brand" href=" {{ url_for('index') }} ">
                     <!-- Brand Name and Logo here -->
                     <!-- <img src="" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> -->
@@ -35,7 +35,7 @@
               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-collapse collapse" id="navbarSupportedContent2">
+              <div class="navbar-collapse mx-3 collapse" id="navbarSupportedContent2">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     
                     <li class="navbar-text">
@@ -47,17 +47,17 @@
                         <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
                     </li> -->
 
-                  <!-- Disabled Text -->
-                  <!-- <li class="navbar-text">
-                    This is text test for my navbar
-                  </li> -->
+                    <!-- Disabled Text -->
+                    <!-- <li class="navbar-text">
+                        This is text test for my navbar
+                    </li> -->
 
-                  <!-- Diasbled Built-in Disabled Item -->
-                  <!-- <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                  </li> -->
+                    <!-- Diasbled Built-in Disabled Item -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li> -->
 
-                </ul>
+                </ul>  
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
@@ -81,20 +81,20 @@
                     </li>
                 </ul>
 
-                <ul class="nav-item dropdown mb-2 mb-lg-0 pl-1">
-                    {% if current_user.is_authenticated %}
-                    <button class="nav-link user-area dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ current_user.username }}
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right mt-2">
-                        <!-- Dropdown items -->
-                        <a class="dropdown-item" href="#">Your Profile</a>
-                        <!-- Disabled Divider -->
-                        <!-- <li><hr class="dropdown-divider"></li> -->
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </ul>
-                    {% endif %}
+                {% if current_user.is_authenticated %}
+                    <ul class="nav-item dropdown mb-2 mb-lg-0 pl-1">
+                        <button class="nav-link user-area dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ current_user.username }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right mt-2">
+                            <!-- Dropdown items -->
+                            <a class="dropdown-item" href="#">Your Profile</a>
+                            <!-- Disabled Divider -->
+                            <!-- <li><hr class="dropdown-divider"></li> -->
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </ul>
                 </ul>
+                {% endif %}
 
                 <!-- Disabled Search Menu -->
                 <!-- <form class="d-flex" role="search">
@@ -133,12 +133,15 @@
         {% endwith %}
         
         <!-- Child Content -->
-        {% block content %}{% endblock content %}
+        <div class="container my-5 py-5">
+            {% block content %}{% endblock content %}
+        </div>
+
 
         <!-- Footer using Bootstrap -->
-        <div class="container">
-            <footer class="d-flex fixed-bottom flex-wrap justify-content-between align-items-center border-top footer">
-            <p class="col-md-4 mx-2 mb-0 navbar-text">© 2024 Our Company, Inc</p>
+        <div class="container-fluid fixed-bottom px-0">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer">
+            <p class="col-md-4 px-2 mb-0 navbar-text">© 2024 Our Company, Inc</p>
         
             <ul class="nav col-md-4 mx-2 justify-content-end">
                 <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Features</a></li>

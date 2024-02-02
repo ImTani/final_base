@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='base_form.css') }}">
+
+<div class="container form-container rounded">
+    <form>
+        
+        {{ form.hidden_tag() }}
+
+        <h2 class="my-3 mb-5 form-heading">
+            {{ form.heading }}
+        </h2>
+
+        {% for field in form if field.name != 'csrf_token' %}
+            {% if field.type != 'SubmitField' or 'BooleanField' %}
+                <div class="mb-3">
+                    {{ field.label(class="form-label") }}
+                    {{ field(class="form-control") }}
+                    {% if field.form_text %}
+                        <div class="form-text">
+                            {{ field.form_text }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% elif field.type == 'BooleanField' %}
+                {{ form.field(class="checkbox-label") }} {{ form.field.label(class="form.label") }}
+            {% elif field.type == 'SubmitField' %}
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary mb-3") }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </form>
+</div>
+
+{% endblock %}

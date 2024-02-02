@@ -5,13 +5,18 @@ from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 import sqlalchemy as sa
 from app.models import User
-from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
+from app.forms import ContactForm, EditProfileForm, ExampleForm, LoginForm, RegistrationForm
 
-@app.route('/')
 @app.route('/base')
 def base():
     return render_template('base.html')
 
+@app.route('/base_form')
+def base_form():
+    form = ExampleForm()
+    return render_template('base_form.html', form=form)
+
+@app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html", current_user=current_user)

@@ -1,0 +1,9 @@
+.carousel{
+    box-shadow: 0px 0px 20px var(--background-color);
+}
+
+.carousel-rect{
+    height: 100%;
+    width: 100%;
+    fill: var(--primary-color);
+}

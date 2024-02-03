@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.containe {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+.private{
+    text-align: center;
+}
+
+</style>
+
+    <div class="containe">
+        <h1 class="private">Privacy Policy</h1>
+        <p>Last updated: [3/2/2024]</p>
+
+        <h2>Introduction</h2>
+        <p>Welcome to the Waste Pickup Tracker web app! This Privacy Policy outlines how we collect, use, and protect your personal information when you use our services.</p>
+
+        <h2>Information We Collect</h2>
+        <h3>User-Provided Information</h3>
+        <ul>
+            <li>Username: Used for account identification.</li>
+            <li>Email Address: Used for communication and account recovery.</li>
+            <li>Password: Securely stored for account authentication.</li>
+            <li>Location: User's home address for routing purposes.</li>
+            <li>Phone Number: Optional contact information for notifications.</li>
+        </ul>
+        <h3>Usage Information</h3>
+        <p>We collect information about how you interact with the app, including:</p>
+        <ul>
+            <li>Truck and User Data: Information related to waste pickup schedules, truck routes, and user preferences.</li>
+            <li>App Usage: Log of interactions, alerts received, and other activities within the app.</li>
+        </ul>
+
+      
+        <h2>How We Use Your Information</h2>
+        <p>We use the collected information for the following purposes:</p>
+        <ul>
+            <li>User Authentication: To verify your identity when you log in.</li>
+            <li>Waste Pickup Services: To provide accurate waste pickup schedules and alerts.</li>
+            <li>Communication: To send notifications, updates, and respond to inquiries.</li>
+            <li>Improvement of Services: To enhance and customize your experience with the app.</li>
+        </ul>
+
+        <!-- Add more sections as needed -->
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy periodically. You will be notified of any changes by updating the "Last updated" date.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us at [nishcodingzone@gmail.com].</p>
+    </div>
+
+
+
+
+
+{% endblock %}

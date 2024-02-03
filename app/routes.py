@@ -109,10 +109,16 @@ def contact_us():
             form.email.data = current_user.email
     return render_template('contact_us.html', form=form)
 
-@app.route('/privacy_policy')
-def privacy_policy():
-    return render_template('/index')
+@app.route('/privacy')
+def privacy():
+    return render_template('/privacy.html')
 
-@app.route('/terms_of_service')
-def terms_of_service():
-    return render_template('/index')
+@app.route('/terms')
+def terms():
+    return render_template('/terms.html')
+@app.route('/faq')
+def faq():
+    return render_template('/faq.html')
+@app.route('/features')
+def features():
+    return render_template('/features.html')

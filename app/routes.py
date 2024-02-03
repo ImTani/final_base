@@ -29,7 +29,9 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data) # type: ignore
+        user = User(username=form.username.data, email=form.email.data,
+                    location=form.location.data, scheduled_pickup_alerts=form.scheduled_pickup_alerts.data,
+                    proximity_alerts=form.scheduled_proximity_alerts_alerts.data, phone=form.phone.data) # type: ignore
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -109,10 +111,16 @@ def contact_us():
             form.email.data = current_user.email
     return render_template('contact_us.html', form=form)
 
-@app.route('/privacy_policy')
-def privacy_policy():
-    return render_template('/index')
+@app.route('/privacy')
+def privacy():
+    return render_template('/privacy.html')
 
-@app.route('/terms_of_service')
-def terms_of_service():
-    return render_template('/index')
+@app.route('/terms')
+def terms():
+    return render_template('/terms.html')
+@app.route('/faq')
+def faq():
+    return render_template('/faq.html')
+@app.route('/features')
+def features():
+    return render_template('/features.html')

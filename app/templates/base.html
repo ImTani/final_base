@@ -30,9 +30,9 @@
             <div class="container-fluid mx-2">
                 <a class="navbar-brand" href=" {{ url_for('index') }} ">
                     <!-- Brand Name and Logo here -->
-                    <!-- <img src="" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> -->
-                    <i class="bi bi-house"></i>
-                    Base
+                    <img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt="Logo" width="60" height="32" class="d-inline-block align-text-top">
+                    <!-- <i class="bi bi-house"></i> -->
+                    DisposeIt!
                 </a>
               <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -149,9 +149,9 @@
             
                 <ul class="nav col-md-4 mx-2 justify-content-end">
                     <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Terms Of Services</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="" class="nav-link px-2 navbar-text">FAQs</a></li>
+                    <li class="nav-item"><a href="{{ url_for('terms')}}" class="nav-link px-2 navbar-text">Terms Of Services</a></li>
+                    <li class="nav-item"><a href="{{ url_for('privacy')}}" class="nav-link px-2 navbar-text">Privacy Policy</a></li>
                 </ul>
 
             </footer>

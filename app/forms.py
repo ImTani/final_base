@@ -25,11 +25,25 @@ class RegistrationForm(FlaskForm):
 
     username = StringField('Username', validators=[DataRequired(), Length(min=4,
                                                             max = 16)], render_kw={'placeholder': 'Enter your username.'})
+
+    phone = StringField('Phone Number', validators=[DataRequired(), Length(min=10,
+                                                                   max=10
+    )], render_kw={'placeholder': 'Enter your phone number.'})
+
     email = StringField('Email', validators=[DataRequired(), Email()], render_kw={'placeholder': 'Enter your email.'})
+
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6,
                                                             max = 18)], render_kw={'placeholder': 'Enter your password.'})
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')], render_kw={'placeholder': 'Enter your password again.'})
+    
+    location = TextAreaField('Address', validators=[Length(min=0,
+                                                            max = 140)], render_kw={'placeholder': 'Enter your address.'})
+    
+    scheduled_pickup_alerts = BooleanField('Want Pickup Alerts?')
+
+    scheduled_proximity_alerts_alerts = BooleanField('Want Proximity Alerts?')
+
     submit = SubmitField('Submit')
 
     def validate_username(self, username):

@@ -116,3 +116,6 @@ def terms():
 @app.route('/faq')
 def faq():
     return render_template('/faq.html')
+@app.route('/features')
+def features():
+    return render_template('/features.html')

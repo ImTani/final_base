@@ -16,6 +16,7 @@ def base_form():
     form = ExampleForm()
     return render_template('base_form.html', form=form)
 
+@login_required
 @app.route('/')
 @app.route('/index')
 def index():
@@ -28,7 +29,9 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data) # type: ignore
+        user = User(username=form.username.data, email=form.email.data,
+                    location=form.location.data, scheduled_pickup_alerts=form.scheduled_pickup_alerts.data,
+                    proximity_alerts=form.scheduled_proximity_alerts_alerts.data, phone=form.phone.data) # type: ignore
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -53,12 +56,14 @@ def login():
         next_page = request.args.get('next')
         if not next_page or urlsplit(next_page).netloc != '':
             next_page = url_for('index')
+        flash("Logged in succesfully.")
         return redirect(next_page)
     return render_template('login.html', title='Sign in', form=form)
 
 @app.route('/logout')
 def logout():
     logout_user()
+    flash("Logged out successfully.")
     return redirect(url_for('index'))
 
 @app.route("/user/<username>")

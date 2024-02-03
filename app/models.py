@@ -22,16 +22,12 @@ class Truck(db.Model):
     current_location: so.Mapped[str] = so.mapped_column(String(100))
     
     status: so.Mapped[str] = so.mapped_column(String(20))
-
-    capacity: so.Mapped[float] = so.mapped_column(Integer)
     
     last_pickup_time: so.Mapped[DateTime] = so.mapped_column(DateTime, default=datetime.utcnow)
     
     next_pickup_date: so.Mapped[DateTime] = so.mapped_column(DateTime, default=datetime.utcnow)
-    
-    waste_type: so.Mapped[str] = so.mapped_column(String(50))
-    
-    route: so.Mapped[str] = so.mapped_column(String(100))
+        
+    district: so.Mapped[str] = so.mapped_column(String(100))
     
     def __repr__(self):
         return f'<Truck {self.license_plate}>'
@@ -47,20 +43,15 @@ class User(UserMixin, db.Model):
     password_hash: so.Mapped[str] = so.mapped_column(String(256))
     
     location: so.Mapped[str] = so.mapped_column(String(100))
+        
+    scheduled_pickup_alerts: so.Mapped[Boolean] = so.mapped_column(Boolean, default=True)
     
-    notification_preferences: so.Mapped[str] = so.mapped_column(String(20))
-    
-    scheduled_pickup_alerts: so.Mapped[Boolean] = so.mapped_column(Boolean)
-    
-    proximity_alerts: so.Mapped[Boolean] = so.mapped_column(Boolean)
+    proximity_alerts: so.Mapped[Boolean] = so.mapped_column(Boolean, default=True)
     
     phone: so.Mapped[str] = so.mapped_column(String(15))
     
     registration_date: so.Mapped[DateTime] = so.mapped_column(DateTime, default=datetime.utcnow)
     
-    subscription_status: so.Mapped[str] = so.mapped_column(String(20))
-    
-    usage_history: so.Mapped[str] = so.mapped_column(String(1000))
     
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()

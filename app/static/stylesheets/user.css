@@ -186,4 +186,43 @@ h1 {
   color: #06010b;
 }
 
-/*# sourceMappingURL=base_form.css.map */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.photo {
+  border-radius: 50%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 2em; /* Increase font size */
+  font-weight: bold;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left; /* Center-align the text */
+}
+
+.about-me {
+  margin-top: 20px;
+  font-size: 1.1em; /* Increase font size */
+  max-width: 70%; /* Set the maximum width to 100% */
+  overflow-wrap: break-word; /* Allow word wrapping within the container */
+}
+
+.last-seen {
+  margin-top: 10px;
+  color: #4c3572;
+  font-size: 16px; /* Adjust font size */
+}
+
+/*# sourceMappingURL=user.css.map */

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='base_form.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base_form.css') }}">
 
 <div class="container form-container rounded">
     <form>
@@ -13,10 +13,13 @@
         </h2>
 
         {% for field in form if field.name != 'csrf_token' %}
-            {% if field.type != 'SubmitField' or 'BooleanField' %}
+            {% if field.type != 'SubmitField' and field.type != 'BooleanField' %}
                 <div class="mb-3">
                     {{ field.label(class="form-label") }}
                     {{ field(class="form-control") }}
+                    {% for error in field.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
                     {% if field.form_text %}
                         <div class="form-text">
                             {{ field.form_text }}
@@ -24,10 +27,10 @@
                     {% endif %}
                 </div>
             {% elif field.type == 'BooleanField' %}
-                {{ form.field(class="checkbox-label") }} {{ form.field.label(class="form.label") }}
+                {{ field(class="form-check-input mb-3") }} {{ field.label(class="form.label") }}
             {% elif field.type == 'SubmitField' %}
                 <div class="d-grid">
-                    {{ form.submit(class="btn btn-primary mb-3") }}
+                    {{ field(class="btn btn-primary mb-3") }}
                 </div>
             {% endif %}
         {% endfor %}

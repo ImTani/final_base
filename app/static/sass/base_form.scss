@@ -1,0 +1,56 @@
+@import 'base.scss';
+
+.user-avatar {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    padding: 5%;
+}
+
+.form-heading {
+    display: inline-block;
+    color: $color-text;
+}
+
+.form-container {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    display: inline-block;
+    min-width: 20em;
+    max-width: 40em;
+    border: 2px solid $color-primary;
+    background-color: $color-secondary;
+}
+
+.form-label {
+    font-size: 1em;
+    color: $color-text;
+}
+
+.form-control {
+    font-size: 1em;
+    color: $color-primary;
+    background-color: $color-background;
+    border-color: $color-text;
+    resize: none;
+
+    &::placeholder{
+        color: $color-accent
+        ;
+    }
+
+    &:focus {
+        background-color: $color-accent;
+        color: $color-background;
+    }
+}
+
+.form-check-input {
+    background-color: $color-primary;
+    border-color: $color-background;
+
+    &:checked {
+        background-color: $color-accent;
+    }
+}

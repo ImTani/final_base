@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- This is a base template I made that we can extend to all the webpages. -->
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,12 +21,12 @@
         <link rel="manifest" href="{{ url_for( 'static', filename='assets/icons/site.webmanifest') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base.css') }}">
     </head>
 
     <body>
         <!-- Navbar taken from bootstrap cheatsheet -->
-        <nav class="navbar navbar-expand-lg fixed-top border-bottom border-body navbar-dark">
+        <nav class="navbar navbar-expand-lg fixed-top border-bottom">
             <div class="container-fluid mx-2">
                 <a class="navbar-brand" href=" {{ url_for('index') }} ">
                     <!-- Brand Name and Logo here -->
@@ -63,9 +65,9 @@
 
                     {% if current_user.is_anonymous %}
                     <!-- Putting the register button on the login page instead -->
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('register') }}">Sign Up</a>
-                    </li> -->
+                    </li>
                     
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
@@ -132,22 +134,25 @@
             {% endif %}
         {% endwith %}
         
+
         <!-- Child Content -->
-        <div class="container my-5 py-5">
+        <div class="content-container container my-5 py-5">
             {% block content %}{% endblock content %}
         </div>
 
 
         <!-- Footer using Bootstrap -->
-        <div class="container-fluid fixed-bottom px-0">
+        <div class="container-fluid px-0 ma">
             <footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer">
-            <p class="col-md-4 px-2 mb-0 navbar-text">© 2024 Our Company, Inc</p>
-        
-            <ul class="nav col-md-4 mx-2 justify-content-end">
-                <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">About</a></li>
-            </ul>
+                <p class="col-md-4 px-2 mb-0 navbar-text">© 2024 Our Company, Inc</p>
+            
+                <ul class="nav col-md-4 mx-2 justify-content-end">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Terms Of Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Privacy Policy</a></li>
+                </ul>
+
             </footer>
         </div>
 

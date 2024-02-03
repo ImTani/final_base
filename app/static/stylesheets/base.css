@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap");
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.navbar {
+  background-color: #a1df93;
+}
+
+.navbar-brand {
+  color: #354c39;
+}
+
+.nav-link, .nav-item {
+  color: #4c3572;
+}
+
+.navbar-text {
+  color: #06010b;
+}
+
+.nav-text a {
+  color: #06010b;
+}
+
+.active {
+  color: #4c3572 !important;
+}
+
+.user-area {
+  color: #06010b;
+}
+
+.dropdown-menu,
+.dropdown-item:hover {
+  background-color: #ffffff;
+}
+
+.dropdown-item,
+.dropdown-item:hover {
+  color: #4c3572;
+}
+
+.dropdown-item:hover {
+  background-color: #4c3572;
+}
+
+.footer {
+  background-color: #a1df93;
+  font-size: 0.8em;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  color: #06010b;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.text {
+  font-size: 1.5em;
+  color: #354c39;
+}
+
+.btn {
+  color: #ffffff;
+  background-color: #354c39;
+  border-color: #06010b;
+}
+
+.btn:hover {
+  color: #a1df93;
+  background-color: #ffffff;
+}
+
+.btn:active,
+.btn:focus {
+  color: #06010b;
+  background-color: #ffffff;
+}
+
+.content-container {
+  flex: 1;
+}
+
+/*# sourceMappingURL=base.css.map */

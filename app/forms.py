@@ -1,3 +1,4 @@
+from email import header
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
@@ -20,13 +21,15 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
+    heading = "Sign Up"
+
     username = StringField('Username', validators=[DataRequired(), Length(min=4,
-                                                            max = 16)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+                                                            max = 16)], render_kw={'placeholder': 'Enter your username.'})
+    email = StringField('Email', validators=[DataRequired(), Email()], render_kw={'placeholder': 'Enter your email.'})
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6,
-                                                            max = 18)])
+                                                            max = 18)], render_kw={'placeholder': 'Enter your password.'})
     password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')], render_kw={'placeholder': 'Enter your password again.'})
     submit = SubmitField('Submit')
 
     def validate_username(self, username):
@@ -48,6 +51,8 @@ class EditProfileForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class ContactForm(FlaskForm):
+    heading="Contact Us"
+
     first = StringField('First Name', validators=[DataRequired()])
     last = StringField('Last Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])

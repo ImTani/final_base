@@ -47,10 +47,18 @@
 }
 
 .form-check-input {
-    background-color: $color-primary;
-    border-color: $color-background;
+    margin-right: .5em;;
+    background-color: $color-secondary;
+    border-color: $color-primary;
 
     &:checked {
-        background-color: $color-accent;
+        background-color: $color-primary;
+        color: $color-secondary;
     }
+}
+
+
+.invalid-feedback{
+    background-color: $color-secondary;
+    color: $color-text;
 }

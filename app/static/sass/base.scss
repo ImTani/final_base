@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap');
 
 $color-text: #06010b;
-$color-background: #ffffff;
+$color-background: #fbfbea;
 $color-primary: #4c3572;
 $color-secondary: #a1df93;
 $color-accent: #354c39;
+$navbar-height: 75px;
 
 body {
     font-family: 'Lato', sans-serif;
@@ -40,7 +41,7 @@ body {
 }
 
 .user-area {
-    color: $color-text;
+    color: $color-primary;
 }
 
 .dropdown-menu,
@@ -54,6 +55,7 @@ body {
 }
 
 .dropdown-item:hover {
+    color: $color-secondary;
     background-color: $color-primary;
 }
 
@@ -82,7 +84,7 @@ h1 {
 
 .btn:hover {
     color: $color-secondary;
-    background-color: $color-background;
+    background-color: $color-primary;
 }
 
 .btn:active,
@@ -92,5 +94,45 @@ h1 {
 }
 
 .content-container {
+    min-height: auto;
     flex: 1;
+}
+
+.flashes {
+    list-style: none;
+    position: fixed;
+    top: $navbar-height;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;  /* Adjust the width as needed */
+    max-width: 400px;  /* Set a maximum width if desired */
+    text-align: center;
+    padding: 10px;
+    color: $color-secondary;
+    background-color: $color-primary;  /* Set the background color */
+    border: 1px solid $color-accent;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  /* Add a box shadow for style */
+    z-index: 1000;  /* Ensure a high z-index to appear above other content */
+}
+
+.flashes.show {
+    top: $navbar-height;
+}
+
+@keyframes slideUp {
+    0% {
+        top: $navbar-height;
+    }
+    100% {
+        top: -100%;
+    }
+}
+
+.flashes.slide-up {
+    animation: slideUp 1.5s ease-in-out 4s forwards;  /* Adjust the duration and delay as needed */
+}
+
+.avatar{
+    border-radius: 50%;
+    border: 2px solid $color-accent;
 }

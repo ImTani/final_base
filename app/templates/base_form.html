@@ -3,9 +3,15 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base_form.css') }}">
 
-<div class="container form-container rounded">
-    <form>
-        
+<div class="container form-container rounded d-flex-row">
+
+    {% if form.has_avatar %}
+        <img src="{{ user.avatar(128) }}" alt="User Photo" class="avatar align-center">
+    {% endif %}
+
+
+    <form method="post">
+
         {{ form.hidden_tag() }}
 
         <h2 class="my-3 mb-5 form-heading">

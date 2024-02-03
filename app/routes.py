@@ -16,6 +16,7 @@ def base_form():
     form = ExampleForm()
     return render_template('base_form.html', form=form)
 
+@login_required
 @app.route('/')
 @app.route('/index')
 def index():
@@ -53,12 +54,14 @@ def login():
         next_page = request.args.get('next')
         if not next_page or urlsplit(next_page).netloc != '':
             next_page = url_for('index')
+        flash("Logged in succesfully.")
         return redirect(next_page)
     return render_template('login.html', title='Sign in', form=form)
 
 @app.route('/logout')
 def logout():
     logout_user()
+    flash("Logged out successfully.")
     return redirect(url_for('index'))
 
 @app.route("/user/<username>")

@@ -2,6 +2,12 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/elegant_page.css') }}">
+<style>
+.all{
+    text-align: justify;
+}
+</style>
+<div class="all">
 <div class="container mt-5">
     <h1 class="text-center">Refuse Reapers</h1>
     <h5 class="text-center">The Waste Pickup Tracker</h5>
@@ -151,5 +157,6 @@
         <p>Implement a feedback mechanism for users to provide comments or report issues related to waste collection, contributing to continuous improvement.</p>
         <p>Collaborate with local municipalities and environmental organizations to promote community engagement and awareness about responsible waste management.</p>
     </div>
+</div>
 </div>
 {% endblock %}

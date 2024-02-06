@@ -13,18 +13,52 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base.css') }}">
-    <!-- Include your SCSS stylesheet if needed -->
+    
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+            padding: 10px;
+        }
+
+        .logos img {
+            width: 80px;
+            height: auto;
+            margin: 0 5px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .logos img {
+                width: 65px;
+                height: 67px;
+            }
+        }
+    </style> 
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+    <div class="logos">
+        <img src="{{ url_for('static', filename='assets/reuse.png') }}" alt="Reuse Logo">
+        <img src="{{ url_for('static', filename='assets/azadi.png') }}" alt="Azadi Logo">
+        <img src="{{ url_for('static', filename='assets/atma.png') }}" alt="Atma Logo">
+        <img src="{{ url_for('static', filename='assets/saaf.png') }}" alt="Saaf Logo">
+        <img src="{{ url_for('static', filename='assets/digital.png') }}" alt="Digital Logo">
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green border-bottom">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" width="66" height="49" class="d-inline-block align-text-center">
+                <img src="{{ url_for('static', filename='assets/reuse.png') }}" alt="Logo" width="66" height="49">
             </a>
             <span class="navbar-text brand-text">
-                Connecting Users to Cleaner Futures
+                <!-- <p style="font-weight: bold; font-size: 20px;color: rgb(26, 155, 26);">Streamlining Waste Management</p> -->
+                <span class="tagline-text">Streamlining Waste Management</span>
             </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -61,8 +95,8 @@
             </div>
         </div>
     </nav>
-
-    <!-- Message Flashes -->
+    
+    <!-- Flash Messages -->
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="flashes">
@@ -76,19 +110,13 @@
         {% endif %}
     {% endwith %}
 
-
-    <!-- <div class="container-fluid mb-5 px-0">
-        <img src="{{ url_for('static', filename='assets/New Project.png') }}" class="d-block w-100" alt="Slide 1">
-    </div>
-     -->
-
     <!-- Content -->
     <div class="container my-5">
         {% block content %}{% endblock %}
     </div>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 bg-dark-green">
         <div class="container">
             <ul class="nav justify-content-center mb-3">
                 <li class="nav-item"><a href="{{ url_for('features') }}" class="nav-link">Features</a></li>
@@ -104,7 +132,6 @@
     <!-- JavaScript Libraries -->
     {{ moment.include_moment() }}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
     
     <script>
         // Function to schedule a notification 10 seconds after page load

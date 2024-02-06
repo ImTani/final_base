@@ -28,6 +28,13 @@ body {
   color: #06010b;
 }
 
+.tagline-text{
+  color: #354c39;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
 .active {
   color: #4c3572 !important;
 }

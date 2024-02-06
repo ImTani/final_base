@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-
-
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css') }}">
+<marquee direction="right" style="color: rgb(78, 78, 214); font-size: 30px;"><img src="{{ url_for('static', filename='assets/truck.png')}}" style="height: 60px; width: 120px;"></marquee>
 
 <div class="container">
     {% if current_user.is_authenticated %}
@@ -15,7 +14,7 @@
 
     <p class="mb-5">Never miss a waste pickup again! Our advanced scheduling system ensures that the waste pickup is scheduled to arrive in your district at <strong id="pickupTime"></strong>. Stay connected and be prepared for waste disposal with Refuse Reapers.</p>
 
-    <h2 class="text-center mb-2 text-light-emphasis"><a href="{{ url_for('vision') }}"> Our Vision </a></h2>
+    <h2 class="text-center mb-2 text-light-emphasis"><a href="{{ url_for('vision') }}" style="text-decoration: none;font-size: 50px;"> Our Vision</a></h2>
 
     <div id="carousel" class="carousel slide rounded w-100" data-bs-ride="carousel">
         <div class="carousel-indicators">

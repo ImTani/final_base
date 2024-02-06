@@ -4,7 +4,7 @@ function scheduleNotificationAt9PM() {
     var now = new Date();
 
     // Calculate the time until 9 PM
-    var timeUntil9PM = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 20, 0) - now;
+    var timeUntil9PM = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 8, 0) - now;
 
     // If it's already past 9 PM, schedule the notification for the next day
     if (timeUntil9PM < 0) {

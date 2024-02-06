@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/elegant_page.css') }}">
+<div class="container mt-5">
+    <h1 class="text-center">Refuse Reapers</h1>
+    <h5 class="text-center">The Waste Pickup Tracker</h5>
+
+    <div class="problem-statement my-5">
+        <h2>I. Understanding of the Question:</h2>
+        <div class="list-group">
+            <div class="list-group-item">
+                <h5>(i) What is the Problem?</h5>
+                <p>The problem is the lack of a systematic way for households to track the schedule of waste collection trucks or garbage pickers, leading to inefficient waste disposal and inconvenience for residents.</p>
+            </div>
+
+            <div class="list-group-item">
+                <h5>(ii) Why is this a Problem?</h5>
+                <p>This is a problem because without a reliable system, residents may miss waste collection, leading to accumulation and environmental issues. Additionally, not being aware of the garbage picker's proximity can result in unpreparedness for waste disposal.</p>
+            </div>
+
+            <div class="list-group-item">
+                <h5>(iii) What are the Different Factors that Create this Problem?</h5>
+                <ul>
+                    <li>Lack of a centralized waste pickup schedule</li>
+                    <li>Limited awareness of the waste pickup timings</li>
+                    <li>Inefficient communication between waste management services and residents</li>
+                </ul>
+            </div>
+
+            <div class="list-group-item">
+                <h5>(iv) What is the Information/Data that I Require to Solve this Problem?</h5>
+                <ul>
+                    <li>Waste pickup schedule</li>
+                    <li>User location data</li>
+                    <li>Notification/alert system</li>
+                    <li>Communication infrastructure between the app and waste management services</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Truck Model Table -->
+    <div class="table-responsive my-5">
+        <table class="table table-bordered">
+            <caption>Truck Model</caption>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Attributes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>Integer (Primary Key)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Driver Name</td>
+                    <td>String (64)</td>
+                    <td>Index</td>
+                </tr>
+                <tr>
+                    <td>License Plate</td>
+                    <td>String (20)</td>
+                    <td>Default: "DL ABC 1234"</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>String (15)</td>
+                    <td></td>
+                </tr>
+                <!-- Add more rows for other fields -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- User Model Table -->
+    <div class="table-responsive my-5">
+        <table class="table table-bordered">
+            <caption>User Model</caption>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Attributes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>Integer (Primary Key)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td>String (64)</td>
+                    <td>Index, Unique</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>String (120)</td>
+                    <td>Index, Unique</td>
+                </tr>
+                <tr>
+                    <td>Password Hash</td>
+                    <td>String (256)</td>
+                    <td></td>
+                </tr>
+                <!-- Add more rows for other fields -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="potential-solutions my-5">
+        <h2>II. Potential Solutions:</h2>
+        <div class="list-group">
+            <div class="list-group-item">
+                <h5>(i) Centralized Waste Pickup Schedule:</h5>
+                <p>Develop a database or system to store and update waste pickup schedules regularly. This centralized schedule will ensure accurate and up-to-date information for residents.</p>
+            </div>
+
+            <div class="list-group-item">
+                <h5>(ii) User Location Tracking:</h5>
+                <p>Implement geolocation services to track the user's location. This will enable the app to determine when a waste collection truck is approaching the user's vicinity.</p>
+            </div>
+
+            <div class="list-group-item">
+                <h5>(iii) Notification/Alert System:</h5>
+                <p>Integrate a notification system that alerts users when the waste pickup is scheduled and when the picker is nearby. Users can customize their notification preferences based on scheduled pickups and proximity alerts.</p>
+            </div>
+
+            <div class="list-group-item">
+                <h5>(iv) Communication with Waste Management Services:</h5>
+                <p>Establish a communication channel between the app and waste management services to update schedules and receive real-time information. This ensures that the app is synchronized with the latest waste pickup data.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="model-plan my-5">
+        <h2>III. Model Plan:</h2>
+        <p>All trucks will be equipped with GPS modules. Whenever a truck is in a specified radius from a user’s stored location, pass a notification to the user that the truck is arriving soon and link it to the live location and set route for the pickup truck. All trucks will have prerecorded routes that they have to follow through their specified localities. Each district would have its own pickup truck allotted to it.</p>
+        <p>Notifications can either be push notifications or through services (Whatsapp/Telegram). This will depend on the user preference.</p>
+    </div>
+
+    <div class="additional-thoughts my-5">
+        <h2>IV. Additional Thoughts:</h2>
+        <p>Considering the sustainability aspect, explore options for eco-friendly waste disposal practices and encourage users to adopt environmentally conscious habits.</p>
+        <p>Implement a feedback mechanism for users to provide comments or report issues related to waste collection, contributing to continuous improvement.</p>
+        <p>Collaborate with local municipalities and environmental organizations to promote community engagement and awareness about responsible waste management.</p>
+    </div>
+</div>
+{% endblock %}

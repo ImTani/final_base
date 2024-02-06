@@ -15,7 +15,11 @@ class Truck(db.Model):
     
     driver_name: so.Mapped[str] = so.mapped_column(String(64), index=True)
     
-    license_plate: so.Mapped[str] = so.mapped_column(String(20), unique=True)
+    license_plate: so.Mapped[str] = so.mapped_column(String(20), default="DL ABC 1234")
+
+    phone: so.Mapped[str] = so.mapped_column(String(15))
+    
+    email: so.Mapped[str] = so.mapped_column(String(120), index=True, unique=True)
     
     schedule: so.Mapped[str] = so.mapped_column(String(20))
     
@@ -29,6 +33,16 @@ class Truck(db.Model):
         
     district: so.Mapped[str] = so.mapped_column(String(100))
     
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return f"https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}"
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
     def __repr__(self):
         return f'<Truck {self.license_plate}>'
 

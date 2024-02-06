@@ -1,164 +1,159 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Refuse Reapers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- This is a base template I made that we can extend to all the webpages. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='assets/icons/site.webmanifest') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base.css') }}">
+    <!-- Include your SCSS stylesheet if needed -->
+</head>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        {% if title %}
-            <title>{{ title }}</title>
-        {% else %}
-            <title>Base Template</title>
-        {% endif %}
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for( 'static', filename='assets/icons/apple-touch-icon.png') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for( 'static', filename='assets/icons/favicon-32x32.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for( 'static', filename='assets/icons/favicon-16x16.png') }}">
-        <link rel="manifest" href="{{ url_for( 'static', filename='assets/icons/site.webmanifest') }}">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base.css') }}">
-    </head>
-
-    <body>
-        <!-- Navbar taken from bootstrap cheatsheet -->
-        <nav class="navbar navbar-expand-lg fixed-top border-bottom">
-            <div class="container-fluid mx-2">
-                <a class="navbar-brand" href=" {{ url_for('index') }} ">
-                    <!-- Brand Name and Logo here -->
-                    <img src="{{ url_for('static', filename='assets/logo.jpg') }}" alt="Logo" width="60" height="32" class="d-inline-block align-text-top">
-                    <!-- <i class="bi bi-house"></i> -->
-                    DisposeIt!
-                </a>
-              <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" width="66" height="49" class="d-inline-block align-text-center">
+            </a>
+            <span class="navbar-text brand-text">
+                Connecting Users to Cleaner Futures
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="navbar-collapse mx-3 collapse" id="navbarSupportedContent2">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
-                    <li class="navbar-text">
-                        We can put items here too
-                    </li>
-
-                    <!-- Example Item -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
-                    </li> -->
-
-                    <!-- Disabled Text -->
-                    <!-- <li class="navbar-text">
-                        This is text test for my navbar
-                    </li> -->
-
-                    <!-- Diasbled Built-in Disabled Item -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li> -->
-
-                </ul>  
-
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
                     {% if current_user.is_anonymous %}
-                    <!-- Putting the register button on the login page instead -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('register') }}">Sign Up</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register') }}">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
                     {% endif %}
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('about_us') }}">About Us</a>
                     </li>
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ current_user.avatar(32) }}" alt="User Photo" class="avatar me-1">
+                                {{ current_user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{{ url_for('user', username=current_user.username) }}">Your Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
                 </ul>
-
-                {% if current_user.is_authenticated %}
-                    <ul class="nav-item dropdown mb-2 mb-lg-0 pl-1">
-                        <button class="nav-link user-area dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ current_user.avatar(32) }}" alt="User Photo" class="avatar ">
-                            {{ current_user.username }}
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right mt-2">
-                            <!-- Dropdown items -->
-                            <a class="dropdown-item" href="{{ url_for('user', username=current_user.username) }}">Your Profile</a>
-                            <!-- Disabled Divider -->
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
-                        </ul>
-                </ul>
-                {% endif %}
-
-                <!-- Disabled Search Menu -->
-                <!-- <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-light" type="submit">Search</button>
-                </form> -->
-
-              </div>
             </div>
-        </nav>
+        </div>
+    </nav>
+
+    <!-- Message Flashes -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flashes">
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+    <!-- <div class="container-fluid mb-5 px-0">
+        <img src="{{ url_for('static', filename='assets/New Project.png') }}" class="d-block w-100" alt="Slide 1">
+    </div>
+     -->
+
+    <!-- Content -->
+    <div class="container my-5">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <ul class="nav justify-content-center mb-3">
+                <li class="nav-item"><a href="{{ url_for('features') }}" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}#faq" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="{{ url_for('terms') }}" class="nav-link">Terms Of Services</a></li>
+                <li class="nav-item"><a href="{{ url_for('privacy') }}" class="nav-link">Privacy Policy</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('register_truck') }}">Truck Driver? Click Here!</a></li>
+            </ul>
+            <p class="text-muted text-center mb-0">© 2024 Refuse Reapers Inc.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    {{ moment.include_moment() }}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
-        <!-- Message Flashes -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const flashes = document.querySelector('.flashes');
-
-                        if (flashes) {
-                            // Show flashes
-                            flashes.classList.add('show');
-
-                            // Slide up after a delay
-                            setTimeout(() => {
-                                flashes.classList.add('slide-up');
-                            }, 5);
+    
+    <script>
+        // Function to schedule a notification 10 seconds after page load
+        function scheduleNotification() {
+            setTimeout(function () {
+                if ('Notification' in window) {
+                    Notification.requestPermission().then(function (permission) {
+                        if (permission === 'granted') {
+                            new Notification("Time for Trash Pickup!", {
+                                body: "The truck is near you!"
+                            });
                         }
                     });
-                </script>
-            {% endif %}
-        {% endwith %}
+                }
+            }, 10000);
+        }
         
+        scheduleNotification()
 
-        <!-- Child Content -->
-        <div class="content-container container my-5 py-5">
-            {% block content %}{% endblock content %}
-        </div>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
 
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
 
-        <!-- Footer using Bootstrap -->
-        <div class="container-fluid px-0 ma">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer">
-                <p class="col-md-4 px-2 mb-0 navbar-text">© 2024 Our Company, Inc</p>
-            
-                <ul class="nav col-md-4 mx-2 justify-content-end">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 navbar-text">Features</a></li>
-                    <li class="nav-item"><a href="" class="nav-link px-2 navbar-text">FAQs</a></li>
-                    <li class="nav-item"><a href="{{ url_for('terms')}}" class="nav-link px-2 navbar-text">Terms Of Services</a></li>
-                    <li class="nav-item"><a href="{{ url_for('privacy')}}" class="nav-link px-2 navbar-text">Privacy Policy</a></li>
-                </ul>
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
 
-            </footer>
-        </div>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flashes = document.querySelector('.flashes');
 
-        <!-- JavaScript Libraries -->
-        {{ moment.include_moment() }}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+            if (flashes) {
+                flashes.classList.add('show');
+
+                setTimeout(() => {
+                    flashes.classList.add('slide-up');
+                }, 5);
+            }
+        });
+    </script>
+</body>
 </html>

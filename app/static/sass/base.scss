@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500&display=swap');
 
+// Color Variables
 $color-text: #06010b;
 $color-background: #fbfbea;
 $color-primary: #4c3572;
@@ -7,6 +8,7 @@ $color-secondary: #a1df93;
 $color-accent: #354c39;
 $navbar-height: 75px;
 
+// Body Styles
 body {
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
@@ -16,15 +18,16 @@ body {
     background-color: $color-background;
 }
 
+// Navbar Styles
 .navbar {
     background-color: $color-secondary;
 }
 
-.navbar-brand{
+.navbar-brand {
     color: $color-accent;
 }
 
-.nav-link, .nav-item{
+.nav-link, .nav-item {
     color: $color-primary;
 }
 
@@ -59,23 +62,37 @@ body {
     background-color: $color-primary;
 }
 
+// Footer Styles
 .footer {
     background-color: $color-secondary;
     font-size: 0.8em;
 }
 
+// Heading Styles
 h1 {
     font-family: 'Playfair Display', serif;
     color: $color-text;
-    font-size: 2em;
+    // font-size: 2em;
     font-weight: bold;
 }
 
+h2 {
+    // font-family: 'Playfair Display', serif;
+    color: $color-text
+}
+
+h3 {
+    // font-family: 'Playfair Display', serif;
+    color: $color-text;
+}
+
+// Text Styles
 .text {
     font-size: 1.5em;
     color: $color-accent;
 }
 
+// Button Styles
 .btn {
     color: $color-background;
     background-color: $color-accent;
@@ -93,26 +110,28 @@ h1 {
     background-color: $color-background;
 }
 
+// Content Container Styles
 .content-container {
     min-height: auto;
     flex: 1;
 }
 
+// Flash Messages Styles
 .flashes {
     list-style: none;
     position: fixed;
     top: $navbar-height;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%;  /* Adjust the width as needed */
-    max-width: 400px;  /* Set a maximum width if desired */
+    width: 50%;
+    max-width: 400px;
     text-align: center;
     padding: 10px;
     color: $color-secondary;
-    background-color: $color-primary;  /* Set the background color */
+    background-color: $color-primary;
     border: 1px solid $color-accent;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  /* Add a box shadow for style */
-    z-index: 1000;  /* Ensure a high z-index to appear above other content */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .flashes.show {
@@ -129,10 +148,74 @@ h1 {
 }
 
 .flashes.slide-up {
-    animation: slideUp 1.5s ease-in-out 4s forwards;  /* Adjust the duration and delay as needed */
+    animation: slideUp 1.5s ease-in-out 4s forwards;
 }
 
-.avatar{
+// Avatar Styles
+.avatar {
     border-radius: 50%;
     border: 2px solid $color-accent;
+}
+
+// Brand Text Styles
+.brand-text {
+    font-size: 0.8em;
+}
+
+/* Additional Styles for Interactive Feedback */
+
+/* Navbar Styles */
+.navbar-brand:hover {
+    color: lighten($color-accent, 10%);
+}
+
+.nav-link:hover,
+.nav-item:hover {
+    color: lighten($color-secondary, 40%);
+}
+
+.navbar-toggler-icon:hover {
+    color: lighten($color-secondary, 10%);
+}
+
+/* Button Styles */
+.btn:hover {
+    color: $color-text;
+    background-color: lighten($color-accent, 10%);
+    border-color: lighten($color-secondary, 10%);
+}
+
+.btn:active,
+.btn:focus {
+    color: $color-background;
+    background-color: lighten($color-secondary, 10%);
+    border-color: $color-primary;
+}
+
+/* Footer Styles */
+.nav-link:hover,
+.nav-item:hover {
+    color: lighten($color-primary, 10%);
+}
+
+/* Heading Styles */
+h1:hover,
+h3:hover {
+    color: lighten($color-accent, 10%);
+}
+
+/* Flash Messages Styles */
+.flashes:hover {
+    background-color: lighten($color-secondary, 10%);
+    color: $color-primary;
+}
+
+/* Avatar Styles */
+.avatar:hover {
+    border-color: lighten($color-accent, 10%);
+}
+
+/* Brand Text Styles */
+.brand-text:hover {
+    color: lighten($color-primary, 10%);
 }

@@ -4,8 +4,8 @@ from app import app, db
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 import sqlalchemy as sa
-from app.models import User
-from app.forms import ContactForm, EditProfileForm, ExampleForm, LoginForm, RegistrationForm
+from app.models import Truck, User
+from app.forms import ContactForm, EditProfileForm, ExampleForm, LoginForm, RegistrationForm, TruckRegistrationForm
 
 @app.route('/base')
 def base():
@@ -22,16 +22,19 @@ def base_form():
 def index():
     return render_template("index.html", current_user=current_user)
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data,
-                    location=form.location.data, scheduled_pickup_alerts=form.scheduled_pickup_alerts.data,
-                    proximity_alerts=form.scheduled_proximity_alerts_alerts.data, phone=form.phone.data) # type: ignore
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            location=form.location.data,
+            scheduled_pickup_alerts=form.scheduled_pickup_alerts.data,
+            phone=form.phone.data
+        )
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -39,6 +42,23 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+@app.route('/register_truck', methods=['GET', 'POST'])
+def register_truck():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = TruckRegistrationForm()
+    if form.validate_on_submit():
+        truck = Truck(
+            driver_name=form.driver_name.data,
+            email=form.email.data,
+            phone=form.phone.data
+        )
+        truck.set_password(form.password.data)
+        db.session.add(truck)
+        db.session.commit()
+        flash("Application Recieved, we'll reach out to you soon.")
+        return redirect(url_for('login'))
+    return render_template('register_truck.html', title='Register as Driver', form=form)
 
 @app.route("/login", methods=['GET', "POST"])
 def login():
@@ -78,21 +98,29 @@ def before_request():
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()
 
-@app.route( '/edit_profile', methods=['GET', 'POST'])
+@app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
-        current_user.about_me = form.about_me.data
+        current_user.email = form.email.data
+        current_user.location = form.location.data
+        current_user.phone = form.phone.data
+        current_user.scheduled_pickup_alerts = form.scheduled_pickup_alerts.data
+        current_user.proximity_alerts = form.proximity_alerts.data
+        current_user.last_seen = datetime.utcnow()  # Update last_seen timestamp
         db.session.commit()
         flash("Your changes have been saved.")
         return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        form.about_me.data = current_user.about_me
+        form.email.data = current_user.email
+        form.location.data = current_user.location
+        form.phone.data = current_user.phone
+        form.scheduled_pickup_alerts.data = current_user.scheduled_pickup_alerts
+        form.proximity_alerts.data = current_user.proximity_alerts
     return render_template('edit_profile.html', title='Edit Profile', form=form, user=current_user)
-
 @app.route('/about_us')
 def about_us():
     return render_template('about_us.html', scroll="images")
@@ -113,14 +141,17 @@ def contact_us():
 
 @app.route('/privacy')
 def privacy():
-    return render_template('/privacy.html')
+    return render_template('privacy.html')
 
 @app.route('/terms')
 def terms():
-    return render_template('/terms.html')
+    return render_template('terms.html')
 @app.route('/faq')
 def faq():
-    return render_template('/faq.html')
+    return render_template('faq.html')
 @app.route('/features')
 def features():
-    return render_template('/features.html')
+    return render_template('features.html')
+@app.route('/vision')
+def vision():
+    return render_template('vision.html')

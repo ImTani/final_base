@@ -1,105 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<style>
-/* General styles */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-image: url('assets/about_background.jpg');
-  background-size: cover;
-  background-position: top;
-}
-
-.container {
-  padding: 0 16px;
-}
-
-.title {
-  color: grey;
-}
-
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: var(--brown);
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
-
-/* About section */
-.about-section {
-  padding: 50px;
-  text-align: center;
-  color: white;
-}
-
-.about-section h1 {
-  font-size: 4em; /* Adjust for smaller screens */
-}
-
-/* Team cards */
-.column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-}
-
-.img {
-  width: 50%;
-  height: 50%;
-  align-self: center;
-  border-radius: 50%;
-  border: 2px solid rgb(183, 140, 88);
-}
-
-.team{
-  text-align: center;
-  color: var(--brown);
-  font-size: 40px;
-  text-shadow: 0px 0px 20px dimgray;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-      width: 100%;
-      display: block;
-  }
-
-  .about-section h1 {
-      font-size: 3em;;
-  }
-}
-
-.Heading{
-  text-shadow: 0px 0px 75px gold;
-  color: rgb(215, 90, 215);
-  font-weight: bold;
-}
-
-.card{
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
-}
-
-h2{
-  padding-top: 2%;
-}
-</style>
     <br>
 
     {% if scroll %}
@@ -108,52 +9,51 @@ h2{
     </script>
     {% endif %}
 
-    <div class="about-section">
+    <div class="about-section text-center">
         <h1 class="Heading">About Us</h1>
     </div>
-    
-    <!-- <h1 class="team">Our Team</h1> -->
-    <div class="row", id="images">
-        <div class="container">
-        <div class="column">
-          <div class="card">
-            <img src="{{ url_for('static', filename='assets/tani.jpeg') }}" class="img">
-            <div class="container">
-              <h2>Tanishk Narula</h2>
-              <p class="title">Back End Developer</p>
-              <p>Hey there,I am Tanishk Narula ,student of Banasthali Public School and a high school coder</p>
-              <p>tanidev69@gmail.com</p>
-              <p><button class="button">Contact</button></p>
+
+    <div class="container">
+        <div class="row justify-content-center" id="images">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ url_for('static', filename='assets/tani.jpeg') }}" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h2 class="card-title">Tanishk Narula</h2>
+                        <p class="card-text">Back End Developer</p>
+                        <p class="card-text">Hey there, I am Tanishk Narula, a student of Banasthali Public School and a high school coder. I specialize in back-end development and ensuring the smooth functioning of our application.</p>
+                        <p class="card-text">tanidev69@gmail.com</p>
+                        <button class="btn btn-primary">Contact</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      
-        <div class="column">
-          <div class="card">
-            <img src="{{ url_for('static', filename='/assets/parth.jpeg') }}" class="img">
-            <div class="container">
-              <h2>Parth Dhamija</h2>
-              <p class="title">Art Director</p>
-              <p>Hey there,I am Parth Dhamija,student of Banasthali Public School and a high school coder</p>
-              <p>parthd2t6@gmail.com</p>
-              <p><button class="button">Contact</button></p>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ url_for('static', filename='/assets/parth.jpeg') }}" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h2 class="card-title">Parth Dhamija</h2>
+                        <p class="card-text">Art Director</p>
+                        <p class="card-text">Hey there, I am Parth Dhamija, a student of Banasthali Public School and a high school coder. As the Art Director, I focus on the visual aspects of our project, ensuring a captivating and user-friendly design.</p>
+                        <p class="card-text">parthd2t6@gmail.com</p>
+                        <button class="btn btn-primary">Contact</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      
-        <div class="column">
-          <div class="card">
-            <img src="{{ url_for('static', filename='/assets/about_nishkarsh.jpg') }}" class="img">
-            <div class="container">
-              <h2>Nishkarsh Bains</h2>
-              <p class="title">Front End Designer</p>
-              <p>Hey there,I am Nishkarsh Bains ,student of Banasthali Public School and a high school coder</p>
-              <p>nishcodingzone@gmail.com</p>
-              <p><button class="button">Contact</button></p>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ url_for('static', filename='/assets/about_nishkarsh.jpg') }}" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h2 class="card-title">Nishkarsh Bains</h2>
+                        <p class="card-text">Front End Designer</p>
+                        <p class="card-text">Hey there, I am Nishkarsh Bains, a student of Banasthali Public School and a high school coder. My role as a Front End Designer involves creating an engaging and intuitive user interface for our application.</p>
+                        <p class="card-text">nishcodingzone@gmail.com</p>
+                        <button class="btn btn-primary">Contact</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        </div>
-      </div>
+    </div>
 
 {% endblock %}

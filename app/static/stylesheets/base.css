@@ -59,8 +59,15 @@ body {
 h1 {
   font-family: "Playfair Display", serif;
   color: #06010b;
-  font-size: 2em;
   font-weight: bold;
+}
+
+h2 {
+  color: #06010b;
+}
+
+h3 {
+  color: #06010b;
 }
 
 .text {
@@ -96,15 +103,15 @@ h1 {
   top: 75px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%; /* Adjust the width as needed */
-  max-width: 400px; /* Set a maximum width if desired */
+  width: 50%;
+  max-width: 400px;
   text-align: center;
   padding: 10px;
   color: #a1df93;
-  background-color: #4c3572; /* Set the background color */
+  background-color: #4c3572;
   border: 1px solid #354c39;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Add a box shadow for style */
-  z-index: 1000; /* Ensure a high z-index to appear above other content */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .flashes.show {
@@ -120,12 +127,73 @@ h1 {
   }
 }
 .flashes.slide-up {
-  animation: slideUp 1.5s ease-in-out 4s forwards; /* Adjust the duration and delay as needed */
+  animation: slideUp 1.5s ease-in-out 4s forwards;
 }
 
 .avatar {
   border-radius: 50%;
   border: 2px solid #354c39;
+}
+
+.brand-text {
+  font-size: 0.8em;
+}
+
+/* Additional Styles for Interactive Feedback */
+/* Navbar Styles */
+.navbar-brand:hover {
+  color: #4a6a50;
+}
+
+.nav-link:hover,
+.nav-item:hover {
+  color: white;
+}
+
+.navbar-toggler-icon:hover {
+  color: #c3ebba;
+}
+
+/* Button Styles */
+.btn:hover {
+  color: #06010b;
+  background-color: #4a6a50;
+  border-color: #c3ebba;
+}
+
+.btn:active,
+.btn:focus {
+  color: #fbfbea;
+  background-color: #c3ebba;
+  border-color: #4c3572;
+}
+
+/* Footer Styles */
+.nav-link:hover,
+.nav-item:hover {
+  color: #634595;
+}
+
+/* Heading Styles */
+h1:hover,
+h3:hover {
+  color: #4a6a50;
+}
+
+/* Flash Messages Styles */
+.flashes:hover {
+  background-color: #c3ebba;
+  color: #4c3572;
+}
+
+/* Avatar Styles */
+.avatar:hover {
+  border-color: #4a6a50;
+}
+
+/* Brand Text Styles */
+.brand-text:hover {
+  color: #634595;
 }
 
 /*# sourceMappingURL=base.css.map */

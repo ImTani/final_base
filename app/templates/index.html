@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css') }}">
-<marquee direction="right" style="color: rgb(78, 78, 214); font-size: 30px;"><img src="{{ url_for('static', filename='assets/truck.png')}}" style="height: 60px; width: 120px;"></marquee>
+
+<div class="container-fluid">
+    <img src="{{ url_for('static', filename='assets/New Project.png') }}" class="d-block w-100">
+</div>
+
+<marquee direction="right" style="color: rgb(78, 78, 214); font-size: 30px;"><img src="{{ url_for('static', filename='assets/trk.png')}}" style="height: auto; width: 160px;"></marquee>
 
 <div class="container">
     {% if current_user.is_authenticated %}
@@ -14,34 +19,15 @@
 
     <p class="mb-5">Never miss a waste pickup again! Our advanced scheduling system ensures that the waste pickup is scheduled to arrive in your district at <strong id="pickupTime"></strong>. Stay connected and be prepared for waste disposal with Refuse Reapers.</p>
 
-    <h2 class="text-center mb-2 text-light-emphasis"><a href="{{ url_for('vision') }}" style="text-decoration: none;font-size: 50px;"> Our Vision</a></h2>
+    <h2 class="text-center mb-2 text-light-emphasis"><a href="{{ url_for('vision') }}" style="font-size: 1.5em;"> Our Vision</a></h2>
 
-    <div id="carousel" class="carousel slide rounded w-100" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='assets/carousel_1.jpg') }}" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ url_for('static', filename='assets/carousel_2.jpg') }}" class="d-block w-100" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ url_for('static', filename='assets/carousel_3.jpg') }}" class="d-block w-100" alt="Slide 3">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+    <div class="video-container">
+        <video controls>
+            <source src="{{ url_for('static', filename='assets/video.mp4')}}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
+
 
     <div class="mt-5" id="faq">
           <h2 class="mb-3">Frequently Asked Questions</h2>

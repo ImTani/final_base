@@ -206,5 +206,26 @@ h3:hover {
 .carousel-item {
   object-fit: contain;
 }
+.video-container {
+  width: 100%;
+  overflow: hidden;
+}
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media screen and (max-width: 400px) {
+  .video{
+      width: 120%;
+      margin: 0 auto;
 
-/*# sourceMappingURL=index.css.map */
+      
+  }
+  .video-container {
+    
+    margin: 0 auto;
+    
+  }
+
+}

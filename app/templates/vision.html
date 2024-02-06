@@ -5,12 +5,22 @@
 <style>
 .all{
     text-align: justify;
+.img{
+    width: 400px;
+    height: 250px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+
+    
+}
 }
 </style>
 <div class="all">
+    <img src="{{ url_for('static', filename='assets/reuse.png') }}" class="img">
 <div class="container mt-5">
-    <h1 class="text-center">Refuse Reapers</h1>
-    <h5 class="text-center">The Waste Pickup Tracker</h5>
+    
+    <h5 class="text-center" style="position: relative;bottom: 60px;">The Waste Pickup Tracker</h5>
 
     <div class="problem-statement my-5">
         <h2>I. Understanding of the Question:</h2>
